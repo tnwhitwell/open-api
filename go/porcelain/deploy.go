@@ -163,7 +163,7 @@ func (n *Netlify) DoDeploy(ctx context.Context, options *DeployOptions, deploy *
 	}
 
 	context.GetLogger(ctx).Infof("Getting files info with asset management flag: %v", deploy.SiteCapabilities.AssetManagement)
-	files, err := walk(options.Dir, options.Observer, deploy.SiteCapabilities.AssetManagement)
+	files, err := walk(ctx, options.Dir, options.Observer, deploy.SiteCapabilities.AssetManagement, deploy)
 	if err != nil {
 		if options.Observer != nil {
 			options.Observer.OnFailedWalk()
@@ -453,7 +453,7 @@ func (n *Netlify) uploadFile(ctx context.Context, d *models.Deploy, f *FileBundl
 	}
 }
 
-func walk(dir string, observer DeployObserver, useAssetManagement bool) (*deployFiles, error) {
+func walk(ctx context.Context, dir string, observer DeployObserver, useAssetManagement bool, deploy *models.Deploy) (*deployFiles, error) {
 	files := newDeployFiles()
 
 	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
@@ -493,6 +493,11 @@ func walk(dir string, observer DeployObserver, useAssetManagement bool) (*deploy
 				originalSha := getAssetManagementSha(o)
 				if originalSha != "" {
 					file.Sum += ":" + string(originalSha)
+					context.GetLogger(ctx).WithFields(logrus.Fields{
+						"deploy_id":    deploy.ID,
+						"file_path":    file.Name,
+						"file_new_sum": file.Sum,
+					}).Debug("Modifying file.Sum with original sha")
 				}
 			}
 
