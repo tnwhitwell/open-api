@@ -490,6 +490,12 @@ func walk(ctx context.Context, dir string, observer DeployObserver, useAssetMana
 			file.Sum = hex.EncodeToString(s.Sum(nil))
 
 			if useAssetManagement {
+				o, err := os.Open(path)
+				if err != nil {
+					return err
+				}
+				defer o.Close()
+
 				originalSha := getAssetManagementSha(o)
 				if originalSha != "" {
 					file.Sum += ":" + string(originalSha)
