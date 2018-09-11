@@ -162,6 +162,7 @@ func (n *Netlify) DoDeploy(ctx context.Context, options *DeployOptions, deploy *
 		}
 	}
 
+	context.GetLogger(ctx).Infof("Getting files info with asset management flag: %v", deploy.SiteCapabilities.AssetManagement)
 	files, err := walk(options.Dir, options.Observer, deploy.SiteCapabilities.AssetManagement)
 	if err != nil {
 		if options.Observer != nil {
