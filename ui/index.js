@@ -2,7 +2,7 @@ const SwaggerUI = require('swagger-ui')
 
 SwaggerUI({
   dom_id: '#container',
-  url: '/swagger.json',
+  url: '/openapi.json',
   displayOperationId: true,
   deepLinking: true
 })

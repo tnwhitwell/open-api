@@ -55,7 +55,7 @@
     "site": "run-p site:*",
     "site:css": "postcss ui/index.css -o ui/dist/bundle.css",
     "site:js": "browserify ui/index.js -o ui/dist/bundle.js",
-    "site:static": "cpx 'ui/{index.html,static/**}' ui/dist",
+    "site:static": "cpx \"ui/{index.html,static/**}\" ui/dist",
     "site:swagger": "node ./ui/include-swagger.js",
     "start": "run-s build serve",
     "version": "run-s version:*",
