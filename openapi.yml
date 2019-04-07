@@ -3,7 +3,7 @@ info:
   version: 0.11.3
   title: Netlify's API definition
 security:
-  - netlifyAuth:
+  - bearerAuth:
       []
 paths:
   /sites:
@@ -1562,13 +1562,10 @@ components:
             $ref: "#/components/schemas/hook"
       required: true
   securitySchemes:
-    netlifyAuth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: https://app.netlify.com/authorize
-          scopes:
-            {}
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     serviceInstance:
       type: object
