@@ -13,7 +13,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	models "github.com/netlify/open-api/go/models"
+	models "github.com/tnwhitwell/open-api/go/models"
 )
 
 // ListAccountsForUserReader is a Reader for the ListAccountsForUser structure.

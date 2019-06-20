@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	apiClient "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	"github.com/netlify/open-api/go/plumbing/operations"
+	"github.com/tnwhitwell/open-api/go/plumbing/operations"
 	"github.com/stretchr/testify/require"
 )
 

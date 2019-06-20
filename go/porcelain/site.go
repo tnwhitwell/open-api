@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/cenkalti/backoff"
-	"github.com/netlify/open-api/go/models"
-	"github.com/netlify/open-api/go/plumbing/operations"
-	"github.com/netlify/open-api/go/porcelain/context"
+	"github.com/tnwhitwell/open-api/go/models"
+	"github.com/tnwhitwell/open-api/go/plumbing/operations"
+	"github.com/tnwhitwell/open-api/go/porcelain/context"
 )
 
 // CustomTLSCertificate holds information

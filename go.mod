@@ -1,4 +1,4 @@
-module github.com/netlify/open-api
+module github.com/tnwhitwell/open-api
 
 go 1.12
 

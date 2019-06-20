@@ -11,7 +11,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"github.com/netlify/open-api/go/plumbing/operations"
+	"github.com/tnwhitwell/open-api/go/plumbing/operations"
 )
 
 // Default netlify HTTP client.

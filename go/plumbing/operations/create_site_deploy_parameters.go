@@ -16,7 +16,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	models "github.com/netlify/open-api/go/models"
+	models "github.com/tnwhitwell/open-api/go/models"
 )
 
 // NewCreateSiteDeployParams creates a new CreateSiteDeployParams object
